@@ -50,7 +50,6 @@ export class HeroesService {
     Object.keys(heroesObj).forEach(key=>{
       const heroe : HeroeModel = heroesObj[key];
       heroe.id=key;
-
       heroes.push(heroe);
     })
 
