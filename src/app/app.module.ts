@@ -8,7 +8,7 @@ import { HeroeComponent } from './pages/heroe/heroe.component';
 import { HeroesComponent } from './pages/heroes/heroes.component';
 
 import{ FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
