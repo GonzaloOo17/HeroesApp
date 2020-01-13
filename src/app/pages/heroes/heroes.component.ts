@@ -9,19 +9,20 @@ import { HeroeModel } from 'src/app/models/heroe.model';
 })
 export class HeroesComponent implements OnInit {
 
-  heroes: HeroeModel[]= [];
+  heroes: HeroeModel[]=[];
 
-  constructor(private HeroeService : HeroesService) { }
+  constructor(private heroeService : HeroesService) { }
 
   
   ngOnInit() {
-
-    this.HeroeService.getHeroes()
-    .subscribe(data=>{
-      console.log(data);
-      this.heroes = data;
-    })
-
+    this.heroeService.getHeroes()
+      .subscribe(data=>{
+        console.log(data);
+        this.heroes=data;
+      });
   }
+
+  
+
 
 }

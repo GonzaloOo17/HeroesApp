@@ -13,42 +13,24 @@ export class HeroesService {
 
   constructor( private http : HttpClient) { }
 
-  crearHeroe(heroe: HeroeModel){
-    return this.http.post(`${this.url}/heroes.json`, heroe)
-    .pipe(map((resp:any)=>{
-      heroe.id = resp.name;
-      return heroe;
-    }))
-}
-
-  actualizarHeroe(heroe:HeroeModel){
-    const heroeTemp={
-      ...heroe
-    };
-
-    delete heroeTemp.id;
-
-    return this.http.put(`${this.url}/heroes/${heroe.id}.json`, heroeTemp);
+  crearHeroe(heroe:HeroeModel){
+    return this.http.post(`${this.url}/heroes.json`,heroe);
   }
 
   getHeroes(){
     return this.http.get(`${this.url}/heroes.json`)
     .pipe(
-      map(resp =>{
-        return this.crearArreglo(resp);
+      map(data=>{
+        return this.crearArreglo(data);
       })
     );
   }
 
-  private crearArreglo( heroesObj : object ){
-    
-    const heroes : HeroeModel[]= [];
-    
+  crearArreglo(Obj:object){
+    const heroes : HeroeModel[] = [];
 
-    if(heroesObj ===null) return[];
-
-    Object.keys(heroesObj).forEach(key=>{
-      const heroe : HeroeModel = heroesObj[key];
+    Object.keys(Obj).forEach(key=>{
+      const heroe:HeroeModel=Obj[key];
       heroe.id=key;
       heroes.push(heroe);
     })

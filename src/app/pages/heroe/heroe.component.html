@@ -14,7 +14,7 @@
 
 <div class="row animated fadeIn faster">
     <div class="col">
-        <form action="" (ngSubmit)="guardar(f)" #f="ngForm">
+        <form action="" (ngSubmit)="onSubmit(f)" #f="ngForm">
             <div class="form-group">
                 <label for="">
                     FirebaseID
@@ -26,14 +26,14 @@
                     <label for="">
                         Nombre
                     </label>
-                    <input type="text" class="form-control" placeholder="Nombre del héroe" required [(ngModel)]="heroe.nombre" name="nombre">
+                    <input type="text" class="form-control" placeholder="Nombre del héroe" [(ngModel)]="heroe.nombre" required name="nombre">
                     
                 </div>
                 <div class="form-group">
                         <label for="">
                             Poder
                         </label>
-                        <input type="text" class="form-control" placeholder="Poder del héroe" required [(ngModel)]="heroe.poder" name="poder">
+                        <input type="text" class="form-control" placeholder="Poder del héroe" [(ngModel)]="heroe.poder" name="poder">
                         
                     </div>
 
@@ -54,7 +54,7 @@
 
                 <hr>
                 <div class="form-group text-center">
-                    <button class="btn btn-primary w-25">
+                    <button class="btn btn-primary w-25" type="submit">
                         <i class="fa fa-save"></i>
                         Guardar
                     </button>
